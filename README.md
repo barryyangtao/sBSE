@@ -13,52 +13,88 @@ A complete set of stage-wise source codes and a representative Cy7 monomer stoch
 
 ## System requirements
 
-- Linux/Unix-based environment.
+### Software dependencies and operating system
+
+- Linux/Unix-based operating system.
 - MPI-enabled Fortran compiler, such as `mpif90`.
-- LIBXC 5.2.3.
-- No GPU or other specialized accelerator hardware is required.
-- Production calculations are designed for parallel CPU-based HPC systems.
+- **LIBXC 5.2.3**.
+
+The code has been tested in Linux-based HPC environments using an MPI-enabled Fortran compiler and LIBXC 5.2.3. The implementation does not depend on a specific Linux distribution or MPI implementation.
+
+### Hardware requirements
+
+No GPU or other specialized accelerator hardware is required.
+
+The code is designed for parallel CPU execution. Small systems may be run with relatively modest computational resources, whereas the large aggregate calculations reported in the manuscript require multi-core HPC resources.
 
 ## Installation
 
-The code consists of several Fortran programs corresponding to different stages of the sBSE workflow. Each stage is compiled separately using an MPI-enabled Fortran compiler and linked against LIBXC 5.2.3.
+The software consists of several Fortran programs corresponding to different stages of the sBSE workflow.
 
-The source files required for all five stages are included in:
+1. Install an MPI-enabled Fortran compiler, such as `mpif90`.
+2. Install **LIBXC 5.2.3**.
+3. Extract `/metadata/five_stage_srcs.zip`.
+4. Compile the Fortran source codes for each stage using the MPI-enabled Fortran compiler and link against LIBXC 5.2.3.
 
-`/metadata/five_stage_srcs.zip`
+Once the compiler and LIBXC are available, compilation of the stage-wise source codes typically requires only a few minutes.
 
-A general compilation and execution tutorial is available at:
+A general tutorial demonstrating compilation and execution is available at:
 
 https://www.youtube.com/watch?v=AOwg3HVnT04
 
-Once the required compiler and LIBXC are available, compilation itself is typically short. The code is primarily intended for Linux-based HPC environments rather than single-workstation execution.
-
-## Demo calculation
+## Demo
 
 A complete representative Cy7 monomer sBSE calculation is provided in:
 
 `/metadata/cy7_monomer_example.zip`
 
-The archive contains the input files and corresponding outputs for the different stages of the calculation. These files provide a representative example of the workflow used in the manuscript.
+The archive contains the input files and corresponding output files for the different stages of the calculation.
 
-The same stage-wise procedure is used for the larger aggregate calculations reported in the paper.
+### Running the demo
+
+1. Extract `/metadata/five_stage_srcs.zip`.
+2. Compile the required Fortran programs as described above.
+3. Extract `/metadata/cy7_monomer_example.zip`.
+4. Enter the corresponding directory for each computational stage.
+5. Run the stages sequentially using the supplied Cy7 monomer input files.
+6. Compare the generated files with the supplied reference output files.
+
+The supplied outputs show the expected results from the representative calculation and may be used to verify successful execution of each stage.
+
+### Expected runtime
+
+Runtime depends strongly on the number of MPI processes and the CPU resources available.
+
+The supplied Cy7 monomer example is intended primarily for execution in a parallel Linux/HPC environment rather than on a standard desktop computer. Therefore, a meaningful desktop runtime is not specified. Compilation itself normally requires only a few minutes, while the computational runtime varies with the number of processors used.
 
 ## Instructions for use
 
-The sBSE workflow proceeds through five computational stages. The corresponding source codes are provided in `/metadata/five_stage_srcs.zip`.
+The sBSE calculation proceeds through five computational stages. The corresponding source codes are provided in:
 
-Users may adapt the supplied Cy7 monomer example to their own molecular systems by replacing the relevant molecular, grid, and calculation input files while retaining the same stage-wise workflow.
+`/metadata/five_stage_srcs.zip`
 
-Because the production calculations reported in the manuscript involve large molecular aggregates and substantial parallel CPU resources, they are intended to be run on HPC systems rather than on a standard desktop computer.
+The Cy7 monomer example demonstrates the directory structure, input files, output files, and stage-wise workflow used in the manuscript.
+
+To apply the software to another molecular system, users should prepare the corresponding molecular, orbital, grid, and calculation inputs required by each stage and then follow the same sequential workflow demonstrated by the supplied example.
+
+Production calculations for large molecular aggregates are computationally demanding and are intended for parallel CPU-based HPC systems.
 
 ## Reproducibility
 
 The repository provides:
 
-1. The complete source code used in the calculations.
-2. The required external dependency and version.
-3. A complete representative Cy7 monomer calculation.
-4. Input and output files for the representative run.
-5. A general compilation and execution tutorial.
+1. The complete stage-wise source code used for the calculations.
+2. The required external dependency and version, LIBXC 5.2.3.
+3. Compilation and execution instructions.
+4. A complete representative Cy7 monomer calculation.
+5. Input files and corresponding reference outputs for the representative calculation.
+6. Instructions for executing and verifying the representative workflow.
+7. A general video tutorial demonstrating compilation and execution.
 
-The detailed theoretical formulation and computational workflow are described in the Methods section and Supplementary Information of the accompanying manuscript.
+The same computational workflow is used for the larger aggregate calculations reported in the manuscript.
+
+Detailed descriptions of the theoretical formulation, numerical implementation, and computational workflow are provided in the **Methods** section and **Supplementary Information** of the accompanying manuscript.
+
+## Source code repository
+
+https://github.com/barryyangtao/sBSE
