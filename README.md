@@ -98,3 +98,8 @@ Detailed descriptions of the theoretical formulation, numerical implementation, 
 ## Source code repository
 
 https://github.com/barryyangtao/sBSE
+
+## License
+
+This software is distributed under the BSD 3-Clause License. See the `LICENSE` file for details.
+
