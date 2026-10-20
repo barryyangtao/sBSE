@@ -6,8 +6,8 @@ A complete set of stage-wise source codes and a representative Cy7 monomer stoch
 
 ## Repository contents
 
-- The complete five-stage source code is provided in `/metadata/five_stage_srcs.zip`.
-- A complete representative Cy7 monomer calculation, including input and output files, is provided in `/metadata/cy7_monomer_example.zip`.
+- The complete five-stage source code is provided in `/main/five_stage_srcs.zip`.
+- A complete representative Cy7 monomer calculation, including input and output files, is provided in `/main/cy7_monomer_example.zip`.
 - A general tutorial demonstrating compilation and execution of the code is available here:  
   https://www.youtube.com/watch?v=AOwg3HVnT04
 
@@ -33,7 +33,7 @@ The software consists of several Fortran programs corresponding to different sta
 
 1. Install an MPI-enabled Fortran compiler, such as `mpif90`.
 2. Install **LIBXC 5.2.3**.
-3. Extract `/metadata/five_stage_srcs.zip`.
+3. Extract `/main/five_stage_srcs.zip`.
 4. Compile the Fortran source codes for each stage using the MPI-enabled Fortran compiler and link against LIBXC 5.2.3.
 
 Once the compiler and LIBXC are available, compilation of the stage-wise source codes typically requires only a few minutes.
@@ -46,15 +46,15 @@ https://www.youtube.com/watch?v=AOwg3HVnT04
 
 A complete representative Cy7 monomer sBSE calculation is provided in:
 
-`/metadata/cy7_monomer_example.zip`
+`/main/cy7_monomer_example.zip`
 
 The archive contains the input files and corresponding output files for the different stages of the calculation.
 
 ### Running the demo
 
-1. Extract `/metadata/five_stage_srcs.zip`.
+1. Extract `/main/five_stage_srcs.zip`.
 2. Compile the required Fortran programs as described above.
-3. Extract `/metadata/cy7_monomer_example.zip`.
+3. Extract `/main/cy7_monomer_example.zip`.
 4. Enter the corresponding directory for each computational stage.
 5. Run the stages sequentially using the supplied Cy7 monomer input files.
 6. Compare the generated files with the supplied reference output files.
@@ -71,7 +71,7 @@ The supplied Cy7 monomer example is intended primarily for execution in a parall
 
 The sBSE calculation proceeds through five computational stages. The corresponding source codes are provided in:
 
-`/metadata/five_stage_srcs.zip`
+`/main/five_stage_srcs.zip`
 
 The Cy7 monomer example demonstrates the directory structure, input files, output files, and stage-wise workflow used in the manuscript.
 
